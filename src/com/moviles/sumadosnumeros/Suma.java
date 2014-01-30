@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Suma extends Activity {
 	
@@ -17,7 +18,6 @@ public class Suma extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_suma);
-		//
 		Button ejecutarSuma = (Button)findViewById(R.id.ejecutarSuma);
 		Button cerrarapp = (Button)findViewById(R.id.botoncerrar);
 		ejecutarSuma.setOnClickListener(sumar);
@@ -28,28 +28,19 @@ public class Suma extends Activity {
 		EditText primerNumText = (EditText)findViewById(R.id.numeroUno);
 		EditText segundoNumText = (EditText)findViewById(R.id.numeroDos);
 		TextView resultado = (TextView)findViewById(R.id.resultadoSuma);
-		//debug
-		String test = primerNumText.toString();
-		System.out.print(primerNumText.toString());
-		//
-		Double primerNumero = Double.parseDouble(primerNumText.getText().toString());
-		Double segundoNumero = Double.parseDouble(segundoNumText.getText().toString());
-		Double resultadoSuma = suma.sumar(primerNumero, segundoNumero);
-		System.out.print(resultadoSuma);
-		resultado.setText(resultadoSuma.toString());
+		try {
+			
+			Double primerNumero = Double.parseDouble(primerNumText.getText().toString());
+			Double segundoNumero = Double.parseDouble(segundoNumText.getText().toString());
+			Double resultadoSuma = suma.sumar(primerNumero, segundoNumero);
+			resultado.setText(resultadoSuma.toString());
+
+		} catch (Exception e) {
+			Toast.makeText(this, "Ocurrio un error en la aplicacion", Toast.LENGTH_LONG).show();
+		}
+
 	}
 	
-	/*
-	public void operacionSuma(){
-		Operacion suma = new Operacion();
-		EditText primerNumText = (EditText)findViewById(R.id);
-		EditText segundoNumText = (EditText)findViewById(R.id.segundoNumero);
-		EditText resultadoText = (EditText)findViewById(R.id.resultado);
-		double primerNumero = Double.parseDouble(primerNumText.toString());
-		double segundoNumero = Double.parseDouble(segundoNumText.toString());
-		double resultado = suma.sumar(primerNumero, segundoNumero);
-	}
-	*/
 	private OnClickListener sumar = new OnClickListener() {		
 		@Override
 		public void onClick(View view) {
