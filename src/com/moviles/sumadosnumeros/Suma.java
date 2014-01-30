@@ -19,6 +19,7 @@ public class Suma extends Activity {
 		setContentView(R.layout.activity_suma);
 		//
 		Button ejecutarSuma = (Button)findViewById(R.id.ejecutarSuma);
+		Button cerrarapp = (Button)findViewById(R.id.botoncerrar);
 		ejecutarSuma.setOnClickListener(sumar);
 	}
 	
