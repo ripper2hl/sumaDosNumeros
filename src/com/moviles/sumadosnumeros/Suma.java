@@ -4,6 +4,7 @@ import java.io.Console;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,7 +45,17 @@ public class Suma extends Activity {
 	private OnClickListener sumar = new OnClickListener() {		
 		@Override
 		public void onClick(View view) {
-			operacionSuma();
+			switch(view.getId()){
+			    case R.id.ejecutarSuma:
+				    operacionSuma();
+				    break;
+			    case R.id.botoncerrar:
+				    //Intent intent = new Intent(Intent.ACTION_MAIN);
+				    Suma.this.finish();
+			    	System.exit(0);
+				    break;
+			
+			}
 		}
 	};
 	
