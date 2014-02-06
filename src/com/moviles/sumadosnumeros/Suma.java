@@ -21,6 +21,7 @@ public class Suma extends Activity {
 		Button ejecutarSuma = (Button)findViewById(R.id.ejecutarSuma);
 		Button cerrarapp = (Button)findViewById(R.id.botoncerrar);
 		ejecutarSuma.setOnClickListener(sumar);
+		cerrarapp.setOnClickListener(cerrar);
 	}
 	
 	public void operacionSuma(){
@@ -45,6 +46,12 @@ public class Suma extends Activity {
 		@Override
 		public void onClick(View view) {
 			operacionSuma();
+		}
+	};
+	
+	private OnClickListener cerrar = new OnClickListener(){
+		public void onClick(View view){
+			finish();
 		}
 	};
 	
